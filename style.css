@@ -4,6 +4,214 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    /* scroll customowy zrobic */
+}
+
 body {
     font-family: "Inter", sans-serif;
+}
+
+/* -----header----- */
+
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 64px;
+    background: #058E3F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+}
+
+header p {
+    font-weight: 600;
+    background: #04773B;
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    list-style: none;
+}
+
+nav a {
+    height: 32px;
+    text-decoration: none;
+    background: #04773B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 16px;
+    border-radius: 8px;
+}
+
+nav a:visited {
+    color: azure;
+}
+
+/* ---------- */
+
+section {
+    height: 100vh;
+    background: #ebe9e2;
+}
+
+/* -----pierwsza sekcja----- */
+.start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+.start h1 {
+    font-size: 48px;
+    margin-bottom: 32px;
+    /* fajna czcionka i animacja jakas */
+    /* cienie pod napisami */
+}
+
+/* ---------- */
+
+/* -----o mnie----- */
+
+.oMnie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.oMnie h2 {
+    font-size: 40px;
+    margin-bottom: 32px;
+}
+
+.oMnie p {
+    width: 70%;
+    text-align: center;
+}
+
+/* ---------- */
+
+/* -----umiejetnosci----- */
+.umiejetnosci {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.umiejetnosci h2 {
+    font-size: 40px;
+    margin-bottom: 32px;
+}
+
+.umiejetnosci ul {
+    background: #04773B;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 8px #000;
+    width: clamp(340px, 70vw, 480px);
+}
+
+.umiejetnosci li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #3ab358;
+    padding: 8px 16px;
+    border-radius: 12px;
+}
+
+/* ---------- */
+
+/* -----projekty----- */
+.projekty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: calc(100vh - 32px);
+}
+
+.projekty h2 {
+    font-size: 40px;
+    margin-bottom: 32px;
+}
+
+.projects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.projects article {
+    background: #069E2D;
+    width: 430px;
+    aspect-ratio: 3/1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 8px;
+    padding: 24px;
+}
+
+.projects article p {
+    font-size: 14px;
+}
+
+.projects article a {
+    background: #036016;
+    width: 72px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    color: #069E2D;
+}
+
+/* ---------- */
+
+
+footer {
+    height: 32px;
+    background: #04773B;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+}
+
+@media (max-width: 740px) {
+    .start h1 {
+        font-size: 32px;
+    }
+
+    .start h2 {
+        font-size: 20px;
+    }
+
+    .projects article {
+        width: 360px;
+    }
 }
