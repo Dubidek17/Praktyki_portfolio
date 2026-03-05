@@ -7,6 +7,9 @@
 html {
     scroll-behavior: smooth;
     /* scroll customowy zrobic */
+    /* header lepszy - color bez visited */
+    /* hamburger menu */
+    /* projekty ladniejsze */
 }
 
 body {
@@ -21,11 +24,13 @@ header {
     top: 0;
     width: 100%;
     height: 64px;
-    background: #058E3F;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 16px;
+    z-index: 100;
 }
 
 header p {
@@ -72,14 +77,21 @@ section {
     align-items: center;
     flex-direction: column;
     text-align: center;
+    background-image: url(./images/topBackground.svg);
+    background-size: cover;
+    background-position: center;
 }
 
 
 .start h1 {
     font-size: 48px;
     margin-bottom: 32px;
-    /* fajna czcionka i animacja jakas */
-    /* cienie pod napisami */
+    text-shadow: 2px 2px 2px #04773B;
+}
+
+.start h2:after {
+    content: " Developer_";
+    animation: writing 1.5s infinite alternate;
 }
 
 /* ---------- */
@@ -91,11 +103,15 @@ section {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-image: url(./images/sectionBackgroundDesktop.svg);
+    background-size: cover;
+    background-position: center;
 }
 
 .oMnie h2 {
     font-size: 40px;
     margin-bottom: 32px;
+    text-shadow: 1px 1px 2px #04773B;
 }
 
 .oMnie p {
@@ -111,15 +127,21 @@ section {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-image: url(./images/sectionBackgroundDesktop.svg);
+    background-size: cover;
+    background-position: center;
 }
 
 .umiejetnosci h2 {
     font-size: 40px;
     margin-bottom: 32px;
+    text-shadow: 1px 1px 2px #04773B;
 }
 
 .umiejetnosci ul {
-    background: #04773B;
+    background-image: url(./images/skillsBackground.svg);
+    background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -136,9 +158,23 @@ section {
     display: flex;
     align-items: center;
     gap: 16px;
-    background: #3ab358;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
     padding: 8px 16px;
-    border-radius: 12px;
+    border-radius: 8px;
+    transition: all .3s;
+}
+
+.umiejetnosci li:hover {
+    transform: translateY(-4px) scaleY(1.1);
+}
+
+.umiejetnosci img {
+    width: 32px;
+}
+
+.umiejetnosci p {
+    border-bottom: 1px solid #000;
 }
 
 /* ---------- */
@@ -150,11 +186,15 @@ section {
     align-items: center;
     flex-direction: column;
     height: calc(100vh - 32px);
+    background-image: url(./images/botBackground.svg);
+    background-size: cover;
+    background-position: bottom;
 }
 
 .projekty h2 {
     font-size: 40px;
     margin-bottom: 32px;
+    text-shadow: 1px 1px 2px #04773B;
 }
 
 .projects {
@@ -163,6 +203,7 @@ section {
     align-items: center;
     gap: 32px;
     flex-wrap: wrap;
+    width: 70vw;
 }
 
 .projects article {
@@ -174,6 +215,7 @@ section {
     justify-content: space-around;
     gap: 8px;
     padding: 24px;
+    box-shadow: 2px 2px 8px #000;
 }
 
 .projects article p {
@@ -181,25 +223,65 @@ section {
 }
 
 .projects article a {
-    background: #036016;
     width: 72px;
     height: 28px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-    color: #069E2D;
+    color: #ebe9e2;
+    position: relative;
+    margin-top: 12px;
+}
+
+.projects article a:visited {
+    color: #ebe9e2;
+}
+
+.projects article a:before,
+.projects article a:after {
+    content: "";
+    position: absolute;
+    width: 55%;
+    height: 50%;
+    transition: all .2s;
+}
+
+.projects article a:before {
+    left: 0;
+    top: 0;
+    border-top: 2px solid #04773B;
+    border-left: 2px solid #04773B;
+    transform: translate(-6px, -6px);
+}
+
+.projects article a:after {
+    right: 0;
+    bottom: 0;
+    border-bottom: 2px solid #056835;
+    border-right: 2px solid #056835;
+    transform: translate(6px, 6px);
+}
+
+.projects article a:hover:before {
+    transform: translate(-2px, -2px);
+}
+
+.projects article a:hover:after {
+    transform: translate(2px, 2px);
 }
 
 /* ---------- */
 
-
 footer {
     height: 32px;
-    background: #04773B;
+    background: rgba(17, 65, 40);
+    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     padding-left: 12px;
+    color: #ebe9e2;
+    border-top: 1px dashed #ebe9e2;
 }
 
 @media (max-width: 740px) {
@@ -213,5 +295,61 @@ footer {
 
     .projects article {
         width: 360px;
+    }
+
+    .umiejetnosci,
+    .oMnie {
+        background-image: url(./images/sectionBackgroundMobile.svg);
+        background-position-x: 500px;
+    }
+
+    .projects article h3 {
+        font-size: 16px;
+    }
+
+    .projects article p {
+        font-size: 12px;
+    }
+}
+
+@keyframes writing {
+    0% {
+        content: " _";
+    }
+
+    10% {
+        content: " D_";
+    }
+
+    20% {
+        content: " De";
+    }
+
+    30% {
+        content: " Dev_";
+    }
+
+    40% {
+        content: " Deve";
+    }
+
+    50% {
+        content: " Devel_";
+    }
+
+    60% {
+        content: " Develo";
+    }
+
+    70% {
+        content: " Develop_";
+    }
+
+    80% {
+        content: " Develope";
+    }
+
+    100% {
+        content: " Developer_";
     }
 }
