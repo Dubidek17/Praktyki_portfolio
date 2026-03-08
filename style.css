@@ -6,17 +6,24 @@
 
 html {
     scroll-behavior: smooth;
-    /* scroll customowy zrobic */
-    /* header lepszy - color bez visited */
-    /* hamburger menu */
-    /* projekty ladniejsze */
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(50, 50, 50, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2c744f;
+    border-radius: 8px;
 }
 
 body {
     font-family: "Inter", sans-serif;
 }
-
-/* -----header----- */
 
 header {
     position: fixed;
@@ -24,7 +31,7 @@ header {
     top: 0;
     width: 100%;
     height: 64px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(50, 50, 50, 0.2);
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
@@ -35,7 +42,8 @@ header {
 
 header p {
     font-weight: 600;
-    background: #04773B;
+    color: #f0ffff;
+    text-shadow: 2px 2px 4px #000;
     padding: 6px 12px;
     border-radius: 8px;
 }
@@ -51,27 +59,84 @@ nav ul {
 nav a {
     height: 32px;
     text-decoration: none;
-    background: #04773B;
+    color: #f0ffff;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 16px;
-    border-radius: 8px;
+    position: relative;
+    text-shadow: 2px 2px 4px #000;
 }
 
 nav a:visited {
-    color: azure;
+    color: #f0ffff;
 }
 
-/* ---------- */
+.desktopMenu nav a:before {
+    content: "";
+    width: 80%;
+    background: #f0ffff;
+    height: 2px;
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    transform: translateX(-50%);
+    transition: all .3s;
+}
+
+.desktopMenu nav a:hover:before {
+    bottom: 2px;
+}
+
+.mobileMenu {
+    flex-direction: column;
+    padding: 16px;
+    background: rgba(50, 50, 50, 0.4);
+}
+
+.hamburgerButton {
+    width: 32px;
+    position: absolute;
+    right: 16px;
+    cursor: pointer;
+}
+
+.mobileMenu nav {
+    width: 100%;
+}
+
+.mobileMenu nav ul {
+    width: 100%;
+    flex-direction: column;
+}
+
+.mobileMenu nav li {
+    width: 100%;
+}
+
+.mobileMenu nav a {
+    height: 36px;
+    color: #f0ffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-shadow: 2px 2px 4px #000;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    transition: all .2s;
+}
+
+.mobileMenu nav a:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
 
 section {
     height: 100vh;
     background: #ebe9e2;
 }
 
-/* -----pierwsza sekcja----- */
-.start {
+.hero {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,23 +147,18 @@ section {
     background-position: center;
 }
 
-
-.start h1 {
+.hero h1 {
     font-size: 48px;
     margin-bottom: 32px;
     text-shadow: 2px 2px 2px #04773B;
 }
 
-.start h2:after {
+.hero h2:after {
     content: " Developer_";
     animation: writing 1.5s infinite alternate;
 }
 
-/* ---------- */
-
-/* -----o mnie----- */
-
-.oMnie {
+.about {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,21 +168,18 @@ section {
     background-position: center;
 }
 
-.oMnie h2 {
+.about h2 {
     font-size: 40px;
     margin-bottom: 32px;
     text-shadow: 1px 1px 2px #04773B;
 }
 
-.oMnie p {
+.about p {
     width: 70%;
     text-align: center;
 }
 
-/* ---------- */
-
-/* -----umiejetnosci----- */
-.umiejetnosci {
+.skills {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,13 +189,13 @@ section {
     background-position: center;
 }
 
-.umiejetnosci h2 {
+.skills h2 {
     font-size: 40px;
     margin-bottom: 32px;
     text-shadow: 1px 1px 2px #04773B;
 }
 
-.umiejetnosci ul {
+.skills ul {
     background-image: url(./images/skillsBackground.svg);
     background-size: cover;
     background-position: center;
@@ -153,7 +210,7 @@ section {
     width: clamp(340px, 70vw, 480px);
 }
 
-.umiejetnosci li {
+.skills li {
     width: 100%;
     display: flex;
     align-items: center;
@@ -165,22 +222,19 @@ section {
     transition: all .3s;
 }
 
-.umiejetnosci li:hover {
+.skills li:hover {
     transform: translateY(-4px) scaleY(1.1);
 }
 
-.umiejetnosci img {
+.skills img {
     width: 32px;
 }
 
-.umiejetnosci p {
+.skills p {
     border-bottom: 1px solid #000;
 }
 
-/* ---------- */
-
-/* -----projekty----- */
-.projekty {
+.projects {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -191,13 +245,13 @@ section {
     background-position: bottom;
 }
 
-.projekty h2 {
+.projects h2 {
     font-size: 40px;
     margin-bottom: 32px;
     text-shadow: 1px 1px 2px #04773B;
 }
 
-.projects {
+.projects div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -207,7 +261,7 @@ section {
 }
 
 .projects article {
-    background: #069E2D;
+    background: linear-gradient(#07b35a, #045c2e);
     width: 430px;
     aspect-ratio: 3/1;
     display: flex;
@@ -250,16 +304,16 @@ section {
 .projects article a:before {
     left: 0;
     top: 0;
-    border-top: 2px solid #04773B;
-    border-left: 2px solid #04773B;
+    border-top: 2px solid #f0ffff;
+    border-left: 2px solid #f0ffff;
     transform: translate(-6px, -6px);
 }
 
 .projects article a:after {
     right: 0;
     bottom: 0;
-    border-bottom: 2px solid #056835;
-    border-right: 2px solid #056835;
+    border-bottom: 2px solid #f0ffff;
+    border-right: 2px solid #f0ffff;
     transform: translate(6px, 6px);
 }
 
@@ -270,8 +324,6 @@ section {
 .projects article a:hover:after {
     transform: translate(2px, 2px);
 }
-
-/* ---------- */
 
 footer {
     height: 32px;
@@ -284,21 +336,47 @@ footer {
     border-top: 1px dashed #ebe9e2;
 }
 
+.hidden {
+    display: none;
+}
+
+@media (min-width: 741px) {
+    .hamburgerMenu {
+        display: none;
+    }
+
+    .mobileMenu {
+        display: none;
+    }
+}
+
 @media (max-width: 740px) {
-    .start h1 {
+    .desktopMenu {
+        display: none;
+    }
+
+    .hero h1 {
         font-size: 32px;
     }
 
-    .start h2 {
+    .hero h2 {
         font-size: 20px;
+    }
+
+    .skills p {
+        font-size: 14px;
+    }
+
+    .projects {
+        gap: 24px;
     }
 
     .projects article {
         width: 360px;
     }
 
-    .umiejetnosci,
-    .oMnie {
+    .skills,
+    .about {
         background-image: url(./images/sectionBackgroundMobile.svg);
         background-position-x: 500px;
     }
